@@ -47,6 +47,13 @@ builder.Services.ConfigureApplicationCookie(opt =>
     opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
     opt.ExpireTimeSpan = TimeSpan.FromDays(10);
 });
+
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("FemalePolicy", cnf => { cnf.RequireClaim("gender", "female"); });
+
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -69,12 +76,14 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.MapDefaultControllerRoute();
+    //endpoints.MapDefaultControllerRoute();
+
+
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Panel}/{action=Index}/{id?}");
 
 });
 
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

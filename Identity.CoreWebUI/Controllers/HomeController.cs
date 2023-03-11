@@ -24,6 +24,7 @@ namespace Identity.CoreWebUI.Controllers
 
 
         [HttpPost]
+        [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> UserLogin(ViewModelLogInUser loginModel)
         {
             if (ModelState.IsValid)

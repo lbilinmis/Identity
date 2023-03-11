@@ -1,0 +1,19 @@
+﻿@model ViewModelAppRole
+@{
+    ViewData["Title"] = "AddRole";
+}
+
+
+<form asp-action="AddRole" asp-controller="Role" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <span asp-validation-for="Name"></span>
+        <input asp-for="Name" />
+    </div>
+
+    <div asp-validation-summary="ModelOnly"></div>
+
+    <input type="submit" class="btn btn-primary" value="Kaydet" />
+
+</form>
+

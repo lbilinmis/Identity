@@ -1,0 +1,36 @@
+﻿@model List<ViewModelAssignRole>
+@{
+    ViewData["Title"] = "AssignRole";
+}
+<div class="col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h5>Kullanıcı Rolleri</h5>
+        </div>
+        <div class="card-body animate-chk">
+            <div class="row">
+                <div class="col">
+                    <form asp-action="AssignRole" method="post">
+
+
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            <input type="hidden" asp-for="@Model[i].RoleId" />
+                            <input type="hidden" asp-for="@Model[i].Name" />
+                            <label class="d-block" for="@Model[i].Exists">
+                                <input type="checkbox" asp-for="@Model[i].Exists" class="checkbox_animated">
+                                @Model[i].Name
+                            </label>
+                        }
+
+
+
+                        <input class="btn btn-success" type="submit" value="Kaydet" />
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

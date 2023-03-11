@@ -1,0 +1,101 @@
+﻿@model ViewModelAppUser
+@{
+    ViewData["Title"] = "UpdateUser";
+}
+
+<div class="container-fluid">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-6">
+                <h3>Sample Page</h3>
+            </div>
+            <div class="col-6">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">
+                            <svg class="stroke-icon">
+                                <use href="../root/htmlAdmin/assets/svg/icon-sprite.svg#stroke-home"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">Pages</li>
+                    <li class="breadcrumb-item active">Sample Page</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-xl-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                           <h5></h5>
+                        </div>
+                        <div class="card-body">
+                            <form class="theme-form" asp-action="UpdateUser" asp-controller="Panel">
+
+
+                                <div class="form-group">
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" asp-for="Ad"></label>
+                                    <input class="form-control" asp-for="Ad" placeholder=""><small class="form-text text-muted"> <span asp-validation-for="Ad"></span></small>
+                                </div>
+                                </div>
+
+                                <div class="form-group">
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" asp-for="Soyad"></label>
+                                    <input class="form-control" asp-for="Soyad" placeholder="">
+                                    <small  class="form-text text-muted">
+                                        <span asp-validation-for="Soyad"></span>
+                                    </small>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" asp-for="Email"></label>
+                                    <input class="form-control" asp-for="Email" placeholder=""><small class="form-text text-muted"> <span asp-validation-for="Email"></span></small>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0" asp-for="PhoneNumber"></label>
+                                    <input class="form-control" asp-for="PhoneNumber" placeholder=""><small class="form-text text-muted"> <span asp-validation-for="PhoneNumber"></span></small>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <div class="mb-3">
+                                    <label class="col-form-label pt-0">Önceki resim</label>
+                                    <img src="../root/images/@Model.ImageUrl" alt="@Model.Ad" />
+                                    <div>
+                                        <input class="form-control" type="file" asp-for="@Model.Image">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+
+                                </div>
+                                </div>
+
+                                <div asp-validation-summary="ModelOnly" class="text-danger">
+
+                                </div>
+
+                                <div class="form-group card-footer">
+                                    <input type="submit" class="btn btn-primary" value="Kaydet" />
+                                </div>
+
+                            </form>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
